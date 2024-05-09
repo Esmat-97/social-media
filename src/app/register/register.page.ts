@@ -41,7 +41,7 @@ export class RegisterPage implements OnInit {
   
   console.log(this.products);
   
-this.http.post('http://192.168.1.2/api/register',main.value).subscribe((res:any)=>{
+this.http.post('http://192.168.1.6/api/register',main.value).subscribe((res:any)=>{
 console.log(res)
 })
 
