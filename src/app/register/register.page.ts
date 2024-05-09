@@ -26,17 +26,21 @@ export class RegisterPage implements OnInit {
     this.selectedFile = event.target.files[0]; // Get the first file selected by the user
     if (this.selectedFile) {
      this.imagename = this.selectedFile.name; // Extract the file name
+     console.log(this.imagename)
     }
   }
 
 
   formdata(main:any){
 
+    this.products=main.value
+
     if (this.selectedFile) {
       this.products.image=this.imagename
      }
   
   console.log(this.products);
+  
 this.http.post('http://192.168.1.2/api/register',main.value).subscribe((res:any)=>{
 console.log(res)
 })
