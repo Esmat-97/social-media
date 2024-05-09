@@ -26,14 +26,14 @@ console.log(res)
 console.log(res.user.id)
 
 const currentDate = new Date();
-    const expiryDate = new Date(currentDate.getTime() + 60* 1000)
+    const expiryDate = new Date(currentDate.getTime() + 10 * 60 * 1000)
 console.log(expiryDate)
 
 
 this.cookieService.set('name', res.user.name ,expiryDate);
 this.cookieService.set('id', res.user.id , expiryDate);
 this.cookieService.set('email', res.user.email , expiryDate);
-this.cookieService.set('image', res.user.email , expiryDate);
+this.cookieService.set('image', res.user.image , expiryDate);
 
 })
 
