@@ -1,0 +1,26 @@
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+<ion-content>
+
+  <form  #main="ngForm" (ngSubmit)="formdata(main)" >
+  
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email" name="email" #email="ngModel" ngModel></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" name="password" #password="ngModel" ngModel></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" type="submit">login</ion-button>
+
+</form>
+</ion-content> 

@@ -1,0 +1,37 @@
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+<ion-content>
+
+  <form  #main="ngForm" (ngSubmit)="formdata(main)" >
+
+  <ion-item>
+    <ion-label position="floating">Name</ion-label>
+    <ion-input type="text" name="name" #name="ngModel" ngModel ></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email" name="email" #email="ngModel" ngModel></ion-input>
+  </ion-item>
+
+
+
+    <ion-input type="file" name="image" #image="ngModel" ngModel (change)=" onFileSelected($event)" ></ion-input>
+  
+
+
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" name="password" #password="ngModel" ngModel></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" type="submit">Register</ion-button>
+
+</form>
+</ion-content> 
