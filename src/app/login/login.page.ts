@@ -8,13 +8,11 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage  {
 
-  constructor(private rot:Router ,private http:HttpClient , private cookieService: CookieService) { }
-
-  ngOnInit() {
-  }
-
+  constructor(private rot:Router ,
+    private http:HttpClient , 
+    private cookieService: CookieService) { }
 
 
   formdata(main:any){
@@ -26,7 +24,7 @@ console.log(res)
 console.log(res.user.id)
 
 const currentDate = new Date();
-    const expiryDate = new Date(currentDate.getTime() + 10 * 60 * 1000)
+    const expiryDate = new Date(currentDate.getTime() + 3 * 60 * 1000)
 console.log(expiryDate)
 
 
@@ -35,9 +33,13 @@ this.cookieService.set('id', res.user.id , expiryDate);
 this.cookieService.set('email', res.user.email , expiryDate);
 this.cookieService.set('image', res.user.image , expiryDate);
 
+
+this.rot.navigate(['/tabs/tab1'])
+
+
 })
 
-this.rot.navigate(['/tabs'])
+
   }
 
   
