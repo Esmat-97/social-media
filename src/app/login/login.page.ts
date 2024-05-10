@@ -24,7 +24,7 @@ console.log(res)
 console.log(res.user.id)
 
 const currentDate = new Date();
-    const expiryDate = new Date(currentDate.getTime() + 3 * 60 * 1000)
+    const expiryDate = new Date(currentDate.getTime() + 10 * 60 * 1000)
 console.log(expiryDate)
 
 

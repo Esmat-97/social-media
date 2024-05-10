@@ -1,23 +1,36 @@
 <div class="container">
 
   <ion-card>
+
+
     <ion-item lines="none">
       <ion-avatar slot="start">
-        <img [src]="'assets/' + image"/>
+        <img [src]="'assets/' + imageuser"/>
       </ion-avatar>
       <ion-label>
         <h2><b>{{name}}</b></h2>
-      
       </ion-label>
     </ion-item>
 
 
+<form #main="ngForm" (ngSubmit)="formdata(main)">
 
-    <ion-item lines="none" class="tweet">
-      <textarea class="tweet-input" placeholder="What's on your mind, {{name}}?" rows="4"></textarea>
-      
-      <ion-button expand="block" class="post-button">Post</ion-button>
-    </ion-item>
+    <textarea  placeholder="What's on your mind, {{name}}?" rows="6" cols="42"  name="post_content" #post_content="ngModel" ngModel></textarea>
+  <ion-item lines="none">
+    <ion-input  type="file" name="image" #image="ngModel" ngModel (change)="onFileSelected($event)"> </ion-input>
+</ion-item >
+
+
+  <ion-item lines="none">
+    <ion-input  type="hidden" name="user_id"  [(ngModel)]="id" >  </ion-input>
+</ion-item >
+
+  <ion-item lines="none" >
+    <ion-button expand="block"  type="submit">Post</ion-button>
+  </ion-item>
+
+</form>
+ 
 
 
   </ion-card>
@@ -29,20 +42,26 @@
 
 
 
-<ion-card>
+
+
+
+
+<ion-card  *ngFor="let x of posts">
   <ion-item lines="none">
     <ion-avatar slot="start">
-      <img [src]="'assets/' + image"/>
+      <img [src]="'assets/' + imageuser"/>
     </ion-avatar>
     <ion-label>
       <h2><b>{{name}}</b></h2>
-      <p>Il y a 14 heures</p>
+      <p>{{x.updated_at}}</p>
     </ion-label>
   </ion-item>
+
+  
   <ion-item lines="none" class="tweet">
-    <ion-label text-wrap>Starship at our launch facility in Cameron County, Texas. Watch as <i>elonmusk</i> gives an update on the vehicle today at ~7:00 p.m. CDT → <i>http://spacex.com/webcast</i></ion-label>
+    <ion-label text-wrap>{{x.post_content }} </ion-label>
   </ion-item>
-  <img class="tweet-img" [src]="'assets/' + image">
+  <img class="tweet-img" [src]="'assets/' + x.image">
   <ion-button size="small" fill="clear" >
     <ion-icon slot="start" name="text"></ion-icon> 34
   </ion-button>
@@ -53,8 +72,5 @@
     <ion-icon slot="start" name="heart-empty"></ion-icon> 210
   </ion-button>
 </ion-card>
-
-
-
 
 </div>
