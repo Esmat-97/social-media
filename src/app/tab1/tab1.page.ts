@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,20 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(private cookieService:CookieService) {}
+  name:string='';
+  id:string='';
+  email:string='';
+  image:string='';
+
+  ngOnInit(){
+
+     this.name = this.cookieService.get('name');
+     this.id= this.cookieService.get('id');
+this.email = this.cookieService.get('email');
+    this.image = this.cookieService.get('image');
+  
+
+  }
 
 }
