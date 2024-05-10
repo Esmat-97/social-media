@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +8,16 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  constructor(private cookieService: CookieService) { }
+
+
+logout(){
+  this.cookieService.delete('name');
+  this.cookieService.delete('id');
+  this.cookieService.delete('email');
+  this.cookieService.delete('image');
+}
+
+
 
 }
