@@ -1,40 +1,40 @@
 
 
-<br>
-<br>
-<br>
-<br>
+<div class="container" style="height: 100vh; overflow-y: auto;" >
+  <h1 class="heading">🚀 Create Account<br><br></h1>
+  <p class="para">Sign up to get started!</p>
+  <form #main="ngForm" (ngSubmit)="formdata(main)">
+    <ion-item lines="none" class="ion-item">
+      <fieldset  class="input-item">
+        <legend>Full Name</legend> 
+        <ion-input type="text" placeholder="John Doe"  name="name" #name="ngModel" ngModel ></ion-input>
+      </fieldset>
+    </ion-item>
+
+    <ion-item lines="none" class="ion-item">
+      <fieldset  class="input-item">
+        <legend>Email Id</legend> 
+        <ion-input  type="email" placeholder="john@doe.com" name="email" #email="ngModel" ngModel></ion-input>
+      </fieldset>
+    </ion-item>
 
 
-<ion-content>
-
-  <form  #main="ngForm" (ngSubmit)="formdata(main)" >
-
-  <ion-item>
-    <ion-label position="floating">Name</ion-label>
-    <ion-input type="text" name="name" #name="ngModel" ngModel ></ion-input>
-  </ion-item>
-  
-  <ion-item>
-    <ion-label position="floating">Email</ion-label>
-    <ion-input type="email" name="email" #email="ngModel" ngModel></ion-input>
-  </ion-item>
+    <ion-item lines="none" class="ion-item">
+      <fieldset  class="input-item">
+        <legend>Image</legend> 
+        <ion-input  type="file" name="image" #image="ngModel" ngModel (change)=" onFileSelected($event)"></ion-input>
+      </fieldset>
+    </ion-item>
 
 
-
-    <ion-input type="file" name="image" #image="ngModel" ngModel (change)=" onFileSelected($event)" ></ion-input>
-  
-
-
-  <ion-item>
-    <ion-label position="floating">Password</ion-label>
-    <ion-input type="password" name="password" #password="ngModel" ngModel></ion-input>
-  </ion-item>
-
-  <ion-button expand="block" type="submit">Register</ion-button>
-
-</form>
-
-
-
-</ion-content> 
+    <ion-item lines="none" class="ion-item">
+      <fieldset class="input-item">
+        <legend>Password</legend> 
+        <ion-input  type="password" placeholder="*******" name="password" #password="ngModel" ngModel></ion-input>
+      </fieldset>
+    </ion-item>
+    <p class="signup-text">I'm already a member&nbsp;<a href="login" >Sign In?</a></p>
+    <ion-button class="login-button"  expand="block" type="submit" >Sign Up</ion-button>
+    <ion-button class="google-button" expand="block" color="light"><ion-icon name="logo-google"></ion-icon>&nbsp;&nbsp;Google Signin</ion-button>
+  </form>
+</div>
