@@ -3,9 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { HOST_NAME } from '../constant';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
+  imports:[FormsModule,IonicModule,ReactiveFormsModule],
+  standalone:true,
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })

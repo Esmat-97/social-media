@@ -1,28 +1,24 @@
 
 
-<br>
-<br>
-<br>
-<br>
-
-
-<ion-content>
-
-  <form  #main="ngForm" (ngSubmit)="formdata(main)" >
-  
-  <ion-item>
-    <ion-label position="floating">Email</ion-label>
-    <ion-input type="email" name="email" #email="ngModel" ngModel></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Password</ion-label>
-    <ion-input type="password" name="password" #password="ngModel" ngModel></ion-input>
-  </ion-item>
-
-  <ion-button expand="block" type="submit">login</ion-button>
-
-</form>
-
-<span>if dont have account <a expand="block" color="primary" href="/register">Register</a></span>
-</ion-content> 
+<div class="container" >
+  <h1 class="heading">👋 Welcome<br><br></h1>
+  <p class="para">Sign in to continue!</p>
+  <form  #main="ngForm" (ngSubmit)="formdata(main)">
+    <ion-item lines="none" class="ion-item">
+      <fieldset  class="input-item">
+        <legend>Email Id</legend> 
+        <ion-input  type="email"  name="email" #email="ngModel" ngModel  placeholder="name@domain.com"></ion-input>
+      </fieldset>
+    </ion-item>
+    <ion-item lines="none" class="ion-item">
+      <fieldset class="input-item">
+        <legend>Password</legend> 
+        <ion-input type="password" name="password" #password="ngModel" ngModel  placeholder="*******"></ion-input>
+      </fieldset>
+    </ion-item>
+    <ion-button class="login-button" type="submit" expand="block">Login</ion-button>
+    <p class="forget-text"><a>Forgot Password?</a></p>
+    <p class="signup-text">I'm a new user&nbsp;<a >Sign Up?</a></p>
+    <ion-button class="google-button" expand="block" color="light"><ion-icon name="logo-google"></ion-icon>&nbsp;&nbsp;Google Signin</ion-button>
+  </form>
+</div>
