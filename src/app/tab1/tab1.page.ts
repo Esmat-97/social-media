@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
+import { HOST_NAME } from '../constant';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class Tab1Page {
 this.email = this.cookieService.get('email');
     this.imageuser = this.cookieService.get('image');
   
-    this.http.get(`http://192.168.1.6/api/posts/allposts`).subscribe((res:any)=>{
+    this.http.get(`${HOST_NAME}/api/posts/allposts`).subscribe((res:any)=>{
       this.posts=res
       console.log(this.posts)
       })

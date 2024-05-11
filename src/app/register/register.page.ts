@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { HOST_NAME } from '../constant';
 
 @Component({
   selector: 'app-register',
@@ -41,7 +42,7 @@ export class RegisterPage implements OnInit {
   
   console.log(this.products);
   
-this.http.post('http://192.168.1.6/api/register',main.value).subscribe((res:any)=>{
+this.http.post(`${HOST_NAME}/api/register`,main.value).subscribe((res:any)=>{
 console.log(res)
 })
 

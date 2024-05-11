@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
+import { HOST_NAME } from '../constant';
 
 @Component({
   selector: 'app-tab3',
@@ -26,7 +27,7 @@ selectedpost:any=[];
 
     console.log(this.id)
 
-      this.http.get(`http://192.168.1.6/api/posts/select/${this.id}`).subscribe((res:any)=>{
+      this.http.get(`${HOST_NAME}/api/posts/select/${this.id}`).subscribe((res:any)=>{
         this.selectedpost=res
         console.log(this.selectedpost)
         },

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { HOST_NAME } from '../constant';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginPage  {
 
     console.log(main.value)
 
-this.http.post('http://192.168.1.6/api/login',main.value).subscribe((res:any)=>{
+this.http.post(`${HOST_NAME}/api/login`,main.value).subscribe((res:any)=>{
 console.log(res)
 console.log(res.user.id)
 
