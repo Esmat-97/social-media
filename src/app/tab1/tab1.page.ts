@@ -54,21 +54,19 @@ this.email = this.cookieService.get('email');
     }
   }
 
-
-
   
   formdata(main:any){
 
     this.products=main.value
 
-    if (this.selectedFile) {
+    // if (this.selectedFile) {
       this.products.image=this.imagename
       this.products.user_id=this.id
-     }
+    //  }
   
   console.log(this.products);
   
-this.http.post('http://192.168.1.6/api/posts',main.value).subscribe((res:any)=>{
+this.http.post(`${HOST_NAME}/api/posts`,main.value).subscribe((res:any)=>{
 console.log(res)
 })
 

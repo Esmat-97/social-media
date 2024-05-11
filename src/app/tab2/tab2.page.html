@@ -1,1 +1,14 @@
-<ion-input class="custom-input" placeholder="search in contacto"></ion-input>
+<ion-input class="custom-input" placeholder="search in contacto" (keyup)="handleInput($event)"></ion-input>
+
+
+<ion-card *ngFor="let x of people" (click)="getid(x.id)">
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img [src]="'assets/' + x.image "/>
+      </ion-avatar>
+      <ion-label>
+        <h2><b>{{x.name}}</b></h2>
+      </ion-label>
+    </ion-item>
+
+  </ion-card>

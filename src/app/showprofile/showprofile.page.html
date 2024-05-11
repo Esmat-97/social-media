@@ -1,0 +1,62 @@
+<div class="container" style="height: 100vh; overflow-y: auto;">
+
+
+  <div class="header">
+    <h2>{{ selectedpeople.user.name}}</h2>  
+    <div class="space-between">
+      <div class="followings">
+        <ion-badge color="primary" mode="ios">42</ion-badge>
+        <p>Abonnés</p>
+      </div>
+      <div class="followings">
+        <ion-badge color="primary" mode="ios">42</ion-badge>
+        <p>Abonnements</p>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="flex">
+    <div class="box-border">
+      <div class="border-white">
+        <div class="img-box">
+          <img [src]="'assets/' +  selectedpeople.user.image">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  
+  <ion-card  *ngFor="let x of selectedposts">
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img [src]="'assets/' + x.user.image">
+      </ion-avatar>
+      <ion-label>
+        <h2><b>{{x.user.name}}</b></h2>
+        <p>{{x.created_at}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none" class="tweet">
+      <ion-label text-wrap>{{x.post_content}}</ion-label>
+    </ion-item>
+    <img class="tweet-img"  [src]="'assets/' + x.image">
+    <ion-button size="small" fill="clear" >
+      <ion-icon slot="start" name="text"></ion-icon> 34
+    </ion-button>
+    <ion-button size="small" fill="clear" >
+      <ion-icon slot="start" name="repeat"></ion-icon> 116
+    </ion-button>
+    <ion-button size="small" fill="clear" >
+      <ion-icon slot="start" name="heart-empty"></ion-icon> 210
+    </ion-button>
+  </ion-card>
+  
+  
+  
+  </div> 
