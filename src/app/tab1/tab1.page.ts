@@ -30,7 +30,7 @@ export class Tab1Page {
 this.email = this.cookieService.get('email');
     this.imageuser = this.cookieService.get('image');
   
-    this.http.get('http://192.168.1.6/api/posts').subscribe((res:any)=>{
+    this.http.get(`http://192.168.1.6/api/posts/allposts`).subscribe((res:any)=>{
       this.posts=res
       console.log(this.posts)
       })
@@ -40,14 +40,9 @@ this.email = this.cookieService.get('email');
 
   /* make posts */
 
-
-
   selectedFile: File | null = null; 
-
   imagename:string='';
-
   products:any={};
-
 
 
   onFileSelected(event: any) {
@@ -67,6 +62,7 @@ this.email = this.cookieService.get('email');
 
     if (this.selectedFile) {
       this.products.image=this.imagename
+      this.products.user_id=this.id
      }
   
   console.log(this.products);

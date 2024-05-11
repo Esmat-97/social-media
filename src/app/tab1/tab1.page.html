@@ -20,11 +20,6 @@
     <ion-input  type="file" name="image" #image="ngModel" ngModel (change)="onFileSelected($event)"> </ion-input>
 </ion-item >
 
-
-  <ion-item lines="none">
-    <ion-input  type="hidden" name="user_id"  [(ngModel)]="id" >  </ion-input>
-</ion-item >
-
   <ion-item lines="none" >
     <ion-button expand="block"  type="submit">Post</ion-button>
   </ion-item>
@@ -49,10 +44,10 @@
 <ion-card  *ngFor="let x of posts">
   <ion-item lines="none">
     <ion-avatar slot="start">
-      <img [src]="'assets/' + imageuser"/>
+      <img [src]="'assets/' + x.user.image"/>
     </ion-avatar>
     <ion-label>
-      <h2><b>{{name}}</b></h2>
+      <h2><b>{{x.user.name}}</b></h2>
       <p>{{x.updated_at}}</p>
     </ion-label>
   </ion-item>
