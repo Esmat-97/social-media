@@ -1,1 +1,16 @@
 
+.custom-input {
+    border-radius: 20px; /* Adjust the border-radius as needed */
+    border: 2px solid black; /* Add border for better appearance */
+    padding: 10px; /* Add padding for spacing */
+  }
+
+
+  .login-button{
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px;
+    --border-radius: 25px;
+    margin-top: 8px;
+    --box-shadow: none;
+}

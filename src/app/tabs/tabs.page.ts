@@ -1,22 +1,15 @@
 import { Component } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
+import { RouterLink } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
+  imports:[RouterLink, IonicModule],
+  standalone:true,
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-
-  constructor(private cookieService: CookieService) { }
-
-
-logout(){
-  this.cookieService.delete('name');
-  this.cookieService.delete('id');
-  this.cookieService.delete('email');
-  this.cookieService.delete('image');
-}
 
 
 

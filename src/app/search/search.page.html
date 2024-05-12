@@ -1,0 +1,28 @@
+
+
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+<ion-input class="custom-input" placeholder="search in contacto" (keyup)="handleInput($event)"></ion-input>
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button routerLink="/tabs"> </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-card *ngFor="let x of people" (click)="getid(x.id)">
+  <ion-item lines="none">
+    <ion-avatar slot="start">
+      <img [src]="'assets/' + x.image "/>
+    </ion-avatar>
+    <ion-label>
+      <h2><b>{{x.name}}</b></h2>
+    </ion-label>
+  </ion-item>
+
+</ion-card>

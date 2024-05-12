@@ -1,44 +1,13 @@
 
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
 
+<ion-button class="login-button"  color="light" expand="block"  routerLink="/search">search ......</ion-button>
+    </ion-title>
 
-
-
-<ion-menu side="start" contentId="main-content">
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content>
-    <ion-list>
-      <ion-menu-toggle auto-hide="true">
-        <ion-item button routerLink="/tabs/tab1">
-          <ion-icon slot="start" name="settings-outline"></ion-icon>
-          <ion-label>setting</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
-
-      <ion-menu-toggle auto-hide="true">
-        <ion-item button routerLink="/tabs/tab2">
-          <ion-icon slot="start" name="language-outline"></ion-icon>
-          <ion-label>languages</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
-
-      <ion-menu-toggle auto-hide="true">
-        <ion-item button  (click)="logout()">
-          <ion-icon slot="start" name="log-out-outline"></ion-icon>
-          <ion-label>logout</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
-
-
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
-<ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-toolbar>
+</ion-header>
 
 <ion-tabs>
 
@@ -53,8 +22,8 @@
 
     
     <ion-tab-button tab="tab2" href="/tabs/tab2">
-      <ion-icon aria-hidden="true" name="search-outline"></ion-icon>
-      <ion-label>search</ion-label>
+      <ion-icon aria-hidden="true" name="people-outline"></ion-icon>
+      <ion-label>contact</ion-label>
     </ion-tab-button>
 
 

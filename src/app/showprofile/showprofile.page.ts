@@ -1,12 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { HOST_NAME } from '../constant';
+import { RouterLink } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-showprofile',
+  imports:[RouterLink , IonicModule , CommonModule],
+  standalone:true,
   templateUrl: './showprofile.page.html',
   styleUrls: ['./showprofile.page.scss'],
 })
@@ -14,7 +19,8 @@ export class ShowprofilePage implements OnInit {
 
   constructor(private cookieService:CookieService ,
      private activatedRoute:ActivatedRoute ,
-    private http:HttpClient) { }
+    private http:HttpClient ,
+  private rot:Router) { }
 
   
   name:string='';
@@ -39,6 +45,10 @@ const id= this.activatedRoute.snapshot.params['id']
       console.log(this.selectedpeople)
       })
 
+  }
+
+  goBack() {
+    this.rot.navigate(['/search']);
   }
 
 }

@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'showprofile/:id',
     loadChildren: () => import('./showprofile/showprofile.module').then( m => m.ShowprofilePageModule)
+  },  {
+    path: 'search',
+    loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
   },
+
 
 
 
