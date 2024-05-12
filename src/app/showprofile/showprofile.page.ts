@@ -48,7 +48,7 @@ const id= this.activatedRoute.snapshot.params['id']
   }
 
   goBack() {
-    this.rot.navigate(['/search']);
+    this.rot.navigate(['/tabs']);
   }
 
 }
