@@ -3,24 +3,33 @@
 <br>
 <br>
 
-<div class="row row-cols-1 row-cols-md-3 g-4" style="height: 100vh; overflow-y: auto;">
-
-<div class="col"  *ngFor="let x of selectedpost"  (click)="getid(x.id)">
-
-<div class="card">
-    <div class="card-header">
-      <img [src]="'assets/' + x.image" alt="Image description" class="card-image">
-      <h2>{{x.name}}</h2>
-    </div>
-    <div class="card-body">
-      <button class="btn-follow">Follow</button>
-    </div>
-  </div>
-
-</div>
-
-</div>
-
-
 
    
+<ion-card *ngFor="let x of selectedpost" >
+
+  <ion-item lines="none">
+
+    <ion-avatar slot="start" (click)="getid(x.id)" >
+      <img [src]="'assets/' + x.image "/> 
+    </ion-avatar>
+    <ion-label>
+      <h2><b>{{x.name}}</b></h2>
+    </ion-label>
+
+    <ion-buttons slot="end">
+      <ion-button >
+        <ion-icon  name="person-add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+
+    <ion-buttons slot="end">
+      <ion-button >
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    
+  </ion-item>
+
+</ion-card>
