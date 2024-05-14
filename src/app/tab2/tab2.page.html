@@ -5,11 +5,11 @@
 
 
    
-<ion-card *ngFor="let x of selectedpost" >
+<ion-card *ngFor="let x of filterdata" >
 
   <ion-item lines="none">
 
-    <ion-avatar slot="start" (click)="getid(x.id)" >
+    <ion-avatar slot="start" (click)="nav(x.id)" >
       <img [src]="'assets/' + x.image "/> 
     </ion-avatar>
     <ion-label>
@@ -22,9 +22,8 @@
       </ion-button>
     </ion-buttons>
 
-
     <ion-buttons slot="end">
-      <ion-button >
+      <ion-button (click)="del(x.id)">
         <ion-icon name="close-outline"></ion-icon>
       </ion-button>
     </ion-buttons>

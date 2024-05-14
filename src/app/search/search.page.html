@@ -7,15 +7,20 @@
     <ion-title>
 <ion-input class="custom-input" placeholder="search in contacto" (keyup)="handleInput($event)"></ion-input>
     </ion-title>
+
+
     <ion-buttons slot="start">
-      <ion-back-button routerLink="/tabs"> </ion-back-button>
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
     </ion-buttons>
+    
   </ion-toolbar>
 </ion-header>
 
 
 
-<ion-card *ngFor="let x of people" (click)="getid(x.id)">
+<ion-card *ngFor="let x of filterdata" (click)="getid(x.id)">
   <ion-item lines="none">
     <ion-avatar slot="start">
       <img [src]="'assets/' + x.image "/>
@@ -23,6 +28,15 @@
     <ion-label>
       <h2><b>{{x.name}}</b></h2>
     </ion-label>
+
+
+    <ion-buttons slot="end">
+      <ion-button (click)="del(x.id)">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
   </ion-item>
+
 
 </ion-card>

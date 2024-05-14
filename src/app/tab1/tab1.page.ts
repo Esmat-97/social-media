@@ -14,8 +14,6 @@ export class Tab1Page {
   constructor(private cookieService:CookieService , private http:HttpClient) {}
 
 
-  /*  GET  */
-
 
   name:string='';
   id:string='';
@@ -24,6 +22,9 @@ export class Tab1Page {
   posts:any=[];
 
   
+
+  /*  GET  */
+
   ngOnInit(){
 
      this.name = this.cookieService.get('name');
@@ -35,11 +36,14 @@ this.email = this.cookieService.get('email');
       this.posts=res
       console.log(this.posts)
       })
+
+      
   }
 
 
 
-  /* make posts */
+  /* make photo */
+
 
   selectedFile: File | null = null; 
   imagename:string='';
@@ -54,15 +58,18 @@ this.email = this.cookieService.get('email');
     }
   }
 
+
+
+
+
+
+  /* POST */
   
   formdata(main:any){
 
     this.products=main.value
-
-    // if (this.selectedFile) {
       this.products.image=this.imagename
       this.products.user_id=this.id
-    //  }
   
   console.log(this.products);
   

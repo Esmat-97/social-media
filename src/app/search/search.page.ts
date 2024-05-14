@@ -19,7 +19,8 @@ export class SearchPage  {
 
 searchValue:any='';
 people:any=[];
-
+filterdata:any=[];
+getting:any={};
 
 
 /* get search */
@@ -30,6 +31,8 @@ handleInput(e:any){
 
   this.http.get(`${HOST_NAME}/api/users/search/${this.searchValue}`).subscribe( (res:any)=>{
        this.people=res
+       this.filterdata=res
+
     console.log(this.people)
 
   })
@@ -37,14 +40,36 @@ handleInput(e:any){
 
 
 
+  /* back */
 
-/* get id */
+    goBack() {
+      this.rot.navigate(['/tabs']);
+    }
+
+
+
+
+/* navigate */
 
 getid(id:any){
+
 console.log(id)
 this.rot.navigate(['/showprofile',id])
 
 }
 
+
+
+/* del */
+
+
+del(id:any){
+
+  // console.log(id);
+  this.getting=  this.people.find((item:any)=>item.id== id);
+  // console.log(this.getting)
+  const index=  this.people.indexOf(this.getting)
+  this.filterdata.splice(index,1);
+  }
 
 }

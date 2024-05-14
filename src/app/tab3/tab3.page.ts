@@ -3,6 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
 import { HOST_NAME } from '../constant';
 
+
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -18,6 +19,10 @@ export class Tab3Page {
   imageuser:string='';
 selectedpost:any=[];
 
+
+
+/* GET */
+
   ngOnInit(){
 
      this.name = this.cookieService.get('name');
@@ -30,13 +35,26 @@ selectedpost:any=[];
       this.http.get(`${HOST_NAME}/api/posts/select/${this.id}`).subscribe((res:any)=>{
         this.selectedpost=res
         console.log(this.selectedpost)
-        },
-        (error) => {
-          console.error('Error fetching posts:', error);
         }
       )
 
   }
 
 
+
+
+  /* del */
+
+  del(idpost:any){
+    // console.log(idpost);
+    this.http.delete(`${HOST_NAME}/api/posts/${idpost}`).subscribe((res:any)=>{
+
+      })
+
+    }
+
+
+
+
+    
 }
