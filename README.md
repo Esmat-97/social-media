@@ -19,3 +19,6 @@ $ ionic start myIonicApp blank
 $ cd myIonicApp
 $ ionic serve
 ```
+![photo_2024-05-14_19-24-44](https://github.com/Esmat-97/social-media/assets/158211063/f7890eca-ba92-40ea-ac52-5dc2d971d739)
+
+
