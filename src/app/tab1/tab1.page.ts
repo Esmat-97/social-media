@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
 import { HOST_NAME } from '../constant';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -11,7 +11,9 @@ import { HOST_NAME } from '../constant';
 })
 export class Tab1Page {
 
-  constructor(private cookieService:CookieService , private http:HttpClient) {}
+  constructor(private cookieService:CookieService ,
+     private http:HttpClient ,
+     private rot:Router) {}
 
 
 
@@ -25,11 +27,11 @@ export class Tab1Page {
 
   /*  GET  */
 
-  ngOnInit(){
+  ngOnInit(){  
 
      this.name = this.cookieService.get('name');
      this.id= this.cookieService.get('id');
-this.email = this.cookieService.get('email');
+     this.email = this.cookieService.get('email');
     this.imageuser = this.cookieService.get('image');
   
     this.http.get(`${HOST_NAME}/api/posts/allposts`).subscribe((res:any)=>{
@@ -42,7 +44,7 @@ this.email = this.cookieService.get('email');
 
 
 
-  /* make photo */
+  /*  photo */
 
 
   selectedFile: File | null = null; 
@@ -57,8 +59,6 @@ this.email = this.cookieService.get('email');
      console.log(this.imagename)
     }
   }
-
-
 
 
 
@@ -79,5 +79,12 @@ console.log(res)
 
 
   }
+
+
+  nav(id:any){
+    // console.log(id)
+    this.rot.navigate(['/showpost',id])
+    
+    }
 
 }

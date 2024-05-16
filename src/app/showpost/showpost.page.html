@@ -1,0 +1,100 @@
+
+<ion-header>
+  <ion-toolbar>
+
+    <ion-title>  
+      
+    </ion-title>
+ 
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+<!-- posts  -->
+
+<div class="container">
+
+<ion-card  *ngFor="let x of selectedposts">
+  <ion-item lines="none">
+    <ion-avatar slot="start">
+      <img [src]="'assets/' + x.user.image">
+    </ion-avatar>
+    <ion-label>
+      <h2><b>{{x.user.name}}</b></h2>
+      <p>{{x.created_at}}</p>
+    </ion-label>
+  </ion-item>
+  <ion-item lines="none" class="tweet">
+    <ion-label text-wrap>{{x.post_content}}</ion-label>
+  </ion-item>
+  <img class="tweet-img"  [src]="'assets/' + x.image">
+  <ion-button size="small" fill="clear" >
+    <ion-icon name="heart"></ion-icon>  
+  </ion-button>
+  <ion-button size="small" fill="clear" >
+    <ion-icon name="chatbubble-outline"></ion-icon> 116
+  </ion-button>
+  <ion-button size="small" fill="clear" >
+    <ion-icon slot="start" name="heart-empty"></ion-icon> 
+  </ion-button>
+</ion-card>
+
+
+  
+<form #main="ngForm" (ngSubmit)="formdata(main)">
+
+  <ion-input  placeholder="write commint"  name="content" #post_content="ngModel" ngModel></ion-input>
+<ion-item lines="none">
+  <ion-input  type="file" name="image" #image="ngModel" ngModel (change)="onFileSelected($event)"> </ion-input>
+</ion-item >
+
+<ion-item lines="none">
+  <ion-button expand="block"  type="submit">Post</ion-button>
+</ion-item>
+
+</form>
+  
+
+<br>
+<br>
+
+
+<!-- comment -->
+
+
+<ion-card color="light" *ngFor="let x of selectedcomment">
+
+  <ion-item color="light" lines="none">
+
+    <ion-avatar slot="start">
+      <img [src]="'assets/' + x.user.image">
+    </ion-avatar>
+    <ion-label>
+      <h2>{{x.user.name}}</h2>
+    <ion-label text-wrap>{{x.content}}</ion-label>
+    </ion-label>
+
+  </ion-item>
+
+  <img class="tweet-img"  [src]="'assets/' + x.image">
+  <ion-button size="small" fill="clear" >
+    <p>{{x.created_at}}</p>
+  </ion-button>
+  
+  <ion-button size="small" fill="clear" >
+    <ion-icon name="chatbubble-outline"></ion-icon> 116
+  </ion-button>
+
+</ion-card>
+
+  </div> 
+
+
+

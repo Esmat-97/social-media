@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
 import { HOST_NAME } from '../constant';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab3',
@@ -11,7 +11,9 @@ import { HOST_NAME } from '../constant';
 })
 export class Tab3Page {
 
-  constructor(private cookieService:CookieService , private http:HttpClient) {}
+  constructor(private cookieService:CookieService
+     , private http:HttpClient ,
+       private rot:Router) {}
 
   name:string='';
   id:string='';
@@ -42,7 +44,6 @@ selectedpost:any=[];
 
 
 
-
   /* del */
 
   del(idpost:any){
@@ -55,6 +56,10 @@ selectedpost:any=[];
 
 
 
+    /* nav */
 
+nav(id:any){
+this.rot.navigate(['/showpost',id])
+}
     
 }

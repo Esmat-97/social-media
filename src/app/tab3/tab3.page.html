@@ -36,7 +36,7 @@
 
 
 
- <ion-card *ngFor="let x of selectedpost">
+ <ion-card *ngFor="let x of selectedpost" (click)="nav(x.id)">
     <ion-item lines="none">
       <ion-avatar slot="start">
         <img [src]="'assets/' + x.user.image">
@@ -63,13 +63,17 @@
     </ion-item>
     <img class="tweet-img"  [src]="'assets/' + x.image">
     <ion-button size="small" fill="clear" >
-      <ion-icon slot="start" name="text"></ion-icon> 34
+      <ion-icon name="heart"></ion-icon> 
     </ion-button>
+
+    
     <ion-button size="small" fill="clear" >
-      <ion-icon slot="start" name="repeat"></ion-icon> 116
+    <ion-icon name="chatbubble-outline"></ion-icon> 116
     </ion-button>
+
+
     <ion-button size="small" fill="clear" >
-      <ion-icon slot="start" name="heart-empty"></ion-icon> 210
+      <ion-icon slot="start" name="heart-empty"></ion-icon> 
     </ion-button>
   </ion-card> 
   
