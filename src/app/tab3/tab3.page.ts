@@ -19,6 +19,8 @@ export class Tab3Page {
   id:string='';
   email:string='';
   imageuser:string='';
+  commentnum:string='';
+  postid:string=''
 selectedpost:any=[];
 
 
@@ -32,14 +34,16 @@ selectedpost:any=[];
    this.email = this.cookieService.get('email');
     this.imageuser = this.cookieService.get('image');
 
+
+
     console.log(this.id)
 
       this.http.get(`${HOST_NAME}/api/posts/select/${this.id}`).subscribe((res:any)=>{
         this.selectedpost=res
         console.log(this.selectedpost)
-        }
-      )
+        })
 
+       
   }
 
 
@@ -59,7 +63,9 @@ selectedpost:any=[];
     /* nav */
 
 nav(id:any){
+
 this.rot.navigate(['/showpost',id])
+
 }
     
 }

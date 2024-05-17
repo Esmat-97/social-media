@@ -1,1 +1,1 @@
-export const HOST_NAME='http://192.168.1.4'
+export const HOST_NAME='http://192.168.1.7'

@@ -47,6 +47,8 @@ console.log(res)
 })
 
 this.rot.navigate(['/login'])
+
+
   }
 
 

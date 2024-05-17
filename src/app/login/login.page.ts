@@ -21,19 +21,21 @@ export class LoginPage  {
     private cookieService: CookieService) { }
 
 
+
+
+
+
+
   formdata(main:any){
 
     console.log(main.value)
 
 this.http.post(`${HOST_NAME}/api/login`,main.value).subscribe((res:any)=>{
 console.log(res)
-console.log(res.user.id)
 
 const currentDate = new Date();
-    const expiryDate = new Date(currentDate.getTime() + 15 * 60 * 1000)
+    const expiryDate = new Date(currentDate.getTime() + 30 * 60 * 1000)
 console.log(expiryDate)
-
-
 this.cookieService.set('name', res.user.name ,expiryDate);
 this.cookieService.set('id', res.user.id , expiryDate);
 this.cookieService.set('email', res.user.email , expiryDate);

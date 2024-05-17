@@ -39,7 +39,7 @@
     <ion-icon name="heart"></ion-icon>  
   </ion-button>
   <ion-button size="small" fill="clear" >
-    <ion-icon name="chatbubble-outline"></ion-icon> 116
+    <ion-icon name="chatbubble-outline"></ion-icon>  {{commentnum}}
   </ion-button>
   <ion-button size="small" fill="clear" >
     <ion-icon slot="start" name="heart-empty"></ion-icon> 
@@ -66,6 +66,15 @@
 <br>
 
 
+
+
+
+
+
+
+
+
+
 <!-- comment -->
 
 
@@ -88,8 +97,8 @@
     <p>{{x.created_at}}</p>
   </ion-button>
   
-  <ion-button size="small" fill="clear" >
-    <ion-icon name="chatbubble-outline"></ion-icon> 116
+  <ion-button size="small" fill="clear" *ngIf="x.user.id == id"  (click)="delcom(x.id)">
+    <ion-icon name="close-outline"></ion-icon>
   </ion-button>
 
 </ion-card>
