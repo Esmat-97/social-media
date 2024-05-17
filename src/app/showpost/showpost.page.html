@@ -50,10 +50,16 @@
   
 <form #main="ngForm" (ngSubmit)="formdata(main)">
 
-  <ion-input  placeholder="write commint"  name="content" #post_content="ngModel" ngModel></ion-input>
-<ion-item lines="none">
-  <ion-input  type="file" name="image" #image="ngModel" ngModel (change)="onFileSelected($event)"> </ion-input>
-</ion-item >
+  <ion-item lines="none" class="ion-item">
+    <fieldset  class="input-item">
+      <ion-input placeholder="write commint"  name="content" #post_content="ngModel" ngModel ></ion-input>
+    </fieldset>
+  </ion-item>
+
+<ion-item lines="none" >
+  <ion-input type="file" name="image" #image="ngModel" ngModel (change)="onFileSelected($event)"> </ion-input>
+</ion-item>
+
 
 <ion-item lines="none">
   <ion-button expand="block"  type="submit">Post</ion-button>

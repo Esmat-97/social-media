@@ -4,18 +4,21 @@
   <h1 class="heading">👋 Welcome<br><br></h1>
   <p class="para">Sign in to continue!</p>
   <form  #main="ngForm" (ngSubmit)="formdata(main)">
+    
     <ion-item lines="none" class="ion-item">
       <fieldset  class="input-item">
         <legend>Email Id</legend> 
         <ion-input  type="email"  name="email" #email="ngModel" ngModel  placeholder="name@domain.com"></ion-input>
       </fieldset>
     </ion-item>
+
     <ion-item lines="none" class="ion-item">
       <fieldset class="input-item">
         <legend>Password</legend> 
         <ion-input type="password" name="password" #password="ngModel" ngModel  placeholder="*******"></ion-input>
       </fieldset>
     </ion-item>
+
     <p class="forget-text"><a>Forgot Password?</a></p>
     <p class="signup-text">I'm a new user&nbsp;<a href="register">Sign Up?</a></p>
     <ion-button class="login-button" type="submit" expand="block">Login</ion-button>

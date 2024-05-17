@@ -43,7 +43,10 @@ selectedpost:any=[];
         console.log(this.selectedpost)
         })
 
-       
+        this.http.get(`${HOST_NAME}/api/posts/count/${this.id}`).subscribe((res:any)=>{
+          this.commentnum= res.comment_count    
+        console.log(this.commentnum)
+        })
   }
 
 

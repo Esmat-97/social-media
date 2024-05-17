@@ -22,8 +22,8 @@ export class Tab1Page {
   email:string='';
   imageuser:string='';
   posts:any=[];
+commentnum:any=[];
 
-  
 
   /*  GET  */
 
@@ -37,14 +37,13 @@ export class Tab1Page {
     this.http.get(`${HOST_NAME}/api/posts/allposts`).subscribe((res:any)=>{
       this.posts=res
       console.log(this.posts)
+   
       })
 
-      
   }
 
 
-
-  /*  photo */
+  /* POST */
 
 
   selectedFile: File | null = null; 
@@ -61,9 +60,6 @@ export class Tab1Page {
   }
 
 
-
-
-  /* POST */
   
   formdata(main:any){
 
@@ -81,10 +77,13 @@ console.log(res)
   }
 
 
+
+
+  /* nav */
+
   nav(id:any){
     // console.log(id)
     this.rot.navigate(['/showpost',id])
-    
-    }
+  }
 
 }

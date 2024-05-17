@@ -85,3 +85,54 @@ ion-card {
     overflow-y: auto; /* Enable vertical scrolling */
     padding: 20px; /* Add padding for better spacing */
 }
+
+
+.input-item{
+    padding-left: 20px;
+    width: 80%;
+    border-radius: 12px;
+    border: 2px solid #e2e2e2;
+    height: 70px;
+    ion-input{
+        margin-top: -12px;
+    }
+}
+.ion-item{
+    margin-top: 20px;
+}
+
+.custom-file-input {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .custom-file-input ion-input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .custom-file-input::before {
+    content: 'Choose File';
+    display: inline-block;
+    background-color: #3880ff; /* Ionic primary color */
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #3880ff;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .custom-file-input:hover::before {
+    background-color: #3171e0; /* Darker shade of primary color */
+    border-color: #3171e0;
+  }
+  
