@@ -86,4 +86,34 @@ console.log(res)
     this.rot.navigate(['/showpost',id])
   }
 
+
+
+  
+
+  /* like */
+
+  toggleHeart(postId: any) {
+    const like = {
+        post_id: postId,
+        user_id: this.id
+    };
+
+    // Check if the like already exists
+    this.http.post(`${HOST_NAME}/api/likes/check`, like).subscribe((res: any) => {
+        if (res.exists) {
+            // Like exists, so delete it
+            this.http.delete(`${HOST_NAME}/api/likes`, { body: like }).subscribe((deleteRes: any) => {
+                console.log('Like removed', deleteRes);
+            });
+        } else {
+            // Like does not exist, so add it
+            this.http.post(`${HOST_NAME}/api/likes`, like).subscribe((addRes: any) => {
+                console.log('Like added', addRes);
+            });
+        }
+
+    });
+}
+
+
 }

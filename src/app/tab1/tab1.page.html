@@ -37,7 +37,7 @@
   <br>
 
 
-<ion-card  *ngFor="let x of posts" (click)="nav(x.id)">
+<ion-card  *ngFor="let x of posts" >
   <ion-item lines="none">
     <ion-avatar slot="start">
       <img [src]="'assets/' + x.user.image"/>
@@ -53,11 +53,14 @@
     <ion-label text-wrap>{{x.post_content }} </ion-label>
   </ion-item>
   <img class="tweet-img" [src]="'assets/' + x.image">
-  <ion-button size="small" fill="clear" >
-    <ion-icon name="heart"></ion-icon> 
+
+
+  <ion-button size="small" fill="clear" (click)="toggleHeart(x.id)">
+    <ion-icon name="heart"></ion-icon>
   </ion-button>
 
-  <ion-button size="small" fill="clear" >
+
+  <ion-button size="small" fill="clear" (click)="nav(x.id)" >
     <ion-icon name="chatbubble-outline"></ion-icon> 
   </ion-button>
 

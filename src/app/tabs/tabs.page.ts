@@ -13,6 +13,7 @@ import { AuthService } from '../services/auth.service';
 export class TabsPage {
 
   constructor(private http:AuthService){}
+  
 done(){
   this.http.logout()
 }

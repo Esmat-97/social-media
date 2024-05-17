@@ -36,11 +36,14 @@
   </ion-item>
   <img class="tweet-img"  [src]="'assets/' + x.image">
   <ion-button size="small" fill="clear" >
-    <ion-icon name="heart"></ion-icon>  
+    <ion-icon name="heart-outline"></ion-icon> {{likenum}}
   </ion-button>
+
+
   <ion-button size="small" fill="clear" >
     <ion-icon name="chatbubble-outline"></ion-icon>  {{commentnum}}
   </ion-button>
+  
   <ion-button size="small" fill="clear" >
     <ion-icon slot="start" name="heart-empty"></ion-icon> 
   </ion-button>

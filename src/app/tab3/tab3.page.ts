@@ -20,6 +20,7 @@ export class Tab3Page {
   email:string='';
   imageuser:string='';
   commentnum:string='';
+  likesnum:string='';
   postid:string=''
 selectedpost:any=[];
 
@@ -46,6 +47,12 @@ selectedpost:any=[];
         this.http.get(`${HOST_NAME}/api/posts/count/${this.id}`).subscribe((res:any)=>{
           this.commentnum= res.comment_count    
         console.log(this.commentnum)
+        })
+
+
+        this.http.get(`${HOST_NAME}/api/user/${this.id}/likes`).subscribe((res:any)=>{
+          this.likesnum= res.count 
+        console.log(this.likesnum)
         })
   }
 

@@ -19,6 +19,7 @@ export class ShowpostPage implements OnInit {
  id:string='';
  postid:string='';
  commentnum:string='';
+ likenum:string='';
 
   constructor(private cookieService:CookieService ,
     private activatedRoute:ActivatedRoute ,
@@ -46,7 +47,6 @@ export class ShowpostPage implements OnInit {
     this.http.get(`${HOST_NAME}/api/comments/${this.postid}`).subscribe((res:any)=>{
       this.selectedcomment=res
       console.log(this.selectedcomment)
-      console.log(this.selectedcomment)
       })
    
 
@@ -55,6 +55,12 @@ export class ShowpostPage implements OnInit {
       console.log(this.commentnum)
       })
     
+
+      
+      this.http.get(`${HOST_NAME}/api/likes/count/${this.postid}`).subscribe((res:any)=>{
+        this.likenum= res.count    
+      console.log(this.likenum)
+      })
   }
 
 
@@ -103,6 +109,9 @@ console.log(res)
     this.rot.navigate(['/tabs']);
   }
 
+
+  
+  /* del */
 
   delcom(id:any){
  
