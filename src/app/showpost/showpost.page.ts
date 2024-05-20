@@ -20,6 +20,7 @@ export class ShowpostPage implements OnInit {
  postid:string='';
  commentnum:string='';
  likenum:string='';
+ commentlikenum:string='';
 
   constructor(private cookieService:CookieService ,
     private activatedRoute:ActivatedRoute ,
@@ -104,20 +105,63 @@ console.log(res)
 
 
   /*  nav */
-
   goBack() {
     this.rot.navigate(['/tabs']);
   }
+
 
 
   
   /* del */
 
   delcom(id:any){
- 
     this.http.delete(`${HOST_NAME}/api/comments/${id}`).subscribe((res:any)=>{
       console.log(res)
       })
   }
+
+
+
+  toggleHeart( commentId: any) {
+
+    const like = {
+        post_id: this.postid,
+        comment_id: commentId,
+        user_id: this.id
+    };
+
+    // Check if the like already exists
+    this.http.post(`${HOST_NAME}/api/commentlikes/check`, like).subscribe((res: any) => {
+        if (res.exists) {
+            // Like exists, so delete it
+            this.http.delete(`${HOST_NAME}/api/commentlikes`, { body: like }).subscribe((deleteRes: any) => {
+                console.log('Like removed', deleteRes);
+            });
+        } else {
+            // Like does not exist, so add it
+            this.http.post(`${HOST_NAME}/api/commentlikes`, like).subscribe((addRes: any) => {
+                console.log('Like added', addRes);
+            });
+        }
+
+    });
+
+
+
+}
+
+
+
+updateLikeCount(commentId: any) {
+  this.http.get(`${HOST_NAME}/api/commentlikes/count/${commentId}`).subscribe(
+      (res: any) => {
+          this.commentlikenum = res.count;
+          console.log(this.commentlikenum);
+      },
+      (error: any) => {
+          console.error('Error updating like count', error);
+      }
+  );
+}
 
 }

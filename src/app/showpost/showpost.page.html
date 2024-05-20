@@ -110,6 +110,11 @@
     <ion-icon name="close-outline"></ion-icon>
   </ion-button>
 
+
+  <ion-button size="small" fill="clear" (click)="toggleHeart(x.id)" (click)="updateLikeCount(x.id)">
+    <ion-icon name="heart-outline"></ion-icon> {{commentlikenum}}
+  </ion-button>
+
 </ion-card>
 
   </div> 
