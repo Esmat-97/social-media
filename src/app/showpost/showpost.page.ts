@@ -18,6 +18,7 @@ export class ShowpostPage implements OnInit {
   selectedcomment:any=[];
  id:string='';
  postid:string='';
+ commentid:string='';
  commentnum:string='';
  likenum:string='';
  commentlikenum:string='';
@@ -36,7 +37,8 @@ export class ShowpostPage implements OnInit {
    this.id= this.cookieService.get('id');
 
     this.postid= this.activatedRoute.snapshot.params['id']
-
+   this.commentid=localStorage.getItem('comment_id') || ''
+ 
 
    this.http.get(`${HOST_NAME}/api/posts/detail/${this.postid}`).subscribe((res:any)=>{
     this.selectedposts=res
@@ -62,6 +64,17 @@ export class ShowpostPage implements OnInit {
         this.likenum= res.count    
       console.log(this.likenum)
       })
+
+
+      this.http.get(`${HOST_NAME}/api/commentlikes/count/${this.commentid}`).subscribe(
+        (res: any) => {
+            this.commentlikenum = res.count;
+            console.log(this.commentlikenum);
+        },
+        (error: any) => {
+            console.error('Error updating like count', error);
+        }
+    );
   }
 
 
@@ -153,15 +166,9 @@ console.log(res)
 
 
 updateLikeCount(commentId: any) {
-  this.http.get(`${HOST_NAME}/api/commentlikes/count/${commentId}`).subscribe(
-      (res: any) => {
-          this.commentlikenum = res.count;
-          console.log(this.commentlikenum);
-      },
-      (error: any) => {
-          console.error('Error updating like count', error);
-      }
-  );
+console.log(commentId)
+localStorage.setItem('comment_id',commentId) 
+
 }
 
 }
