@@ -24,12 +24,15 @@ $ ionic serve
 ![photo_2024-05-14_19-24-18](https://github.com/Esmat-97/social-media/assets/158211063/a4e0441f-11a5-4305-a588-872db737c675)
 
 # register and login
-
 https://github.com/Esmat-97/social-media/assets/158211063/e16f19b2-8c54-4541-b901-6c3487661554
 
-# crud operation for posts
 
+# crud operation for posts
 https://github.com/Esmat-97/social-media/assets/158211063/47a807e1-ab7a-4865-8559-48c711d7f48e
+
+
+# crud operation for commrnt
+https://github.com/Esmat-97/social-media/assets/158211063/c7cd3e7a-0575-4e1b-b67a-1361159b6e9b
 
 
 
