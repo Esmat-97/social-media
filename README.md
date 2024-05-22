@@ -27,4 +27,9 @@ $ ionic serve
 
 https://github.com/Esmat-97/social-media/assets/158211063/e16f19b2-8c54-4541-b901-6c3487661554
 
+# crud operation for posts
+
+https://github.com/Esmat-97/social-media/assets/158211063/47a807e1-ab7a-4865-8559-48c711d7f48e
+
+
 
