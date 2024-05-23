@@ -27,6 +27,8 @@ export class ShowprofilePage implements OnInit {
   id:string='';
   email:string='';
   imageuser:string='';
+  commentnum:string='';
+  likesnum:string='';
 
   selectedposts:any=[];
   selectedpeople:any={};
@@ -35,18 +37,37 @@ export class ShowprofilePage implements OnInit {
 
 const id= this.activatedRoute.snapshot.params['id']
 
+this.id= this.cookieService.get('id');
+
    this.http.get(`${HOST_NAME}/api/posts/select/${id}`).subscribe((res:any)=>{
     this.selectedposts=res
     console.log(this.selectedposts)
     })
+
+
  
     this.http.get(`${HOST_NAME}/api/users/${id}`).subscribe((res:any)=>{
       this.selectedpeople=res
       console.log(this.selectedpeople)
       })
 
+
+      /*     */
+      
+      this.http.get(`${HOST_NAME}/api/posts/count/${this.id}`).subscribe((res:any)=>{
+        this.commentnum= res.comment_count    
+      console.log(this.commentnum)
+      })
+
+
+      this.http.get(`${HOST_NAME}/api/user/${this.id}/likes`).subscribe((res:any)=>{
+        this.likesnum= res.count 
+      console.log(this.likesnum)
+      })
   }
 
+
+  
   goBack() {
     this.rot.navigate(['/tabs']);
   }

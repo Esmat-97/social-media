@@ -73,7 +73,6 @@ selectedpost:any=[];
     /* nav */
 
 nav(id:any){
-
 this.rot.navigate(['/showpost',id])
 
 }
