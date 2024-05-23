@@ -35,7 +35,7 @@
     <ion-label text-wrap>{{x.post_content}}</ion-label>
   </ion-item>
   <img class="tweet-img"  [src]="'assets/' + x.image">
-  <ion-button size="small" fill="clear" >
+  <ion-button size="small" fill="clear" (click)="togglepost(x.id)">
     <ion-icon name="heart-outline"></ion-icon> {{likenum}}
   </ion-button>
 

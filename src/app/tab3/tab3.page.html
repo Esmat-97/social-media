@@ -36,7 +36,7 @@
 
 
 
- <ion-card *ngFor="let x of selectedpost" (click)="nav(x.id)">
+ <ion-card *ngFor="let x of selectedpost" >
     <ion-item lines="none">
       <ion-avatar slot="start">
         <img [src]="'assets/' + x.user.image">
@@ -67,7 +67,7 @@
     </ion-button>
 
     
-    <ion-button size="small" fill="clear" >
+    <ion-button size="small" fill="clear" (click)="nav(x.id)">
     <ion-icon name="chatbubble-outline"></ion-icon> 
     </ion-button>
 
